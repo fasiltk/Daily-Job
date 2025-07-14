@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Customer Registrations{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/register_customer.css' %}">
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'index' %}"><button class="index-btn">Home</button></a>
+
+<!-- <form method="post" enctype="multipart/form-data">
+    {% csrf_token %} -->
+    <div class="container">
+        <div class="row">
+
+
+
+
+            
+            <div class="col-lg-3 col-md-2"></div>
+
+            <div class="col-lg-6 col-md-8 login-box">
+                <!-- <div class="col-lg-12 login-key">
+                    <i class="fa fa-key" aria-hidden="true"></i>
+                </div> -->
+
+                <div class="col-lg-12 login-title">
+                    REGISTRATION
+                </div>
+
+
+
+                <!-- <div class="col-lg-6 login-btm login-text"> -->
+                    <!-- Error Message -->
+                <!-- </div> -->
+
+
+                <div class="col-lg-12 login-form">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label class="form-control-label">USERNAME</label>
+                            <input type="email" class="form-control" name="username"
+                                placeholder="Use your username as Email">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label">PASSWORD</label>
+                            <input type="password" class="form-control" name="password" id="password">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label">CONFIRM PASSWORD</label>
+                            <input type="password" class="form-control" name="password" id="confirmPassword">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label">NAME</label>
+                            <input type="text" class="form-control" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label">PHONE NUMBER</label>
+                            <input type="text" class="form-control" name="phone_number">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label">PLACE</label>
+                            <input type="text" class="form-control" name="place">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label">FEES</label>
+                            <input type="text" class="form-control" name="fees">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label">IMAGE</label>
+                            <input type="file" class="form-control" name="image">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="form-control-label">PROFESSION</label>
+                            <select name="profession" id="profession" onchange="toggleProfessionInput()" class="form-control">
+                                <option value=""></option>
+                                <option value="plumber" >Plumber</option>
+                                <option value="electrician">Electrician</option>
+                                <option value="coolie">Coolie</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="form-group" id="other-profession" style="display:none;">
+                                <label class="form-control-label">OTHER PROFESSION</label>
+                                <input type="text" class="form-control" name="other_profession">
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-6 login-btm login-text">
+                            <!-- Error Message -->
+        
+                            {% if messages %}
+                            <div class="alert alert-danger">
+                                <ul class="list-unstyled">
+                                    {% for message in messages %}
+                                        <li>{{ message }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}
+        
+        
+                        </div>
+
+
+                        <div class="col-lg-12 loginbttm">
+                            <div class="col-lg-6 login-btm login-button">
+                                <button type="submit" class="btn btn-outline-primary" id="submit">REGISTER</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-2"></div>
+        </div>
+        <input type="hidden" id="alert-flag" value="{% if alert_flag %}true{% else %}false{% endif %}">
+</form>
+<script src="{% static 'js/register_labour.js' %}"></script>
+{% endblock %}

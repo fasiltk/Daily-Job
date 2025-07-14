@@ -1,0 +1,66 @@
+body{
+    background-image: url('bg2.jpg');
+    background-position: top;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+}
+.container {
+    position: relative;
+    margin-left: 90px;
+    margin-top: -43px;
+}
+
+.register-btn {
+    padding: 10px 20px;
+    background-color: rgb(0, 123, 255);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    position: relative;
+}
+
+.dropdown {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 5px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    display: none;
+}
+
+.dropdown li {
+    margin-top: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    align-items: center;
+    
+}
+
+.container:hover .dropdown {
+    display: block;
+}
+.btn{
+    padding: 10px 10px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.nav{
+    margin-left: 1030px;
+}
+.container:hover .dropdown li:hover {
+    background-color: rgba(0, 123, 255, 0.5);
+    width: 100px;
+    border-radius: 5px;
+    margin-left: 10px;
+    .btn{
+        color: #fff;
+    }
+}
