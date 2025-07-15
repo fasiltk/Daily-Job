@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'authsystem/base.html' %}
 
 {% load static %}
 
@@ -11,7 +11,7 @@
 {% block content %}
 <a href="{% url 'index' %}"><button class="index-btn">Home</button></a>
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="container">
         <div class="row">

@@ -1,0 +1,26 @@
+{% extends 'authsystem/base.html' %}
+
+{% load static %}
+
+{% block title %}Index{% endblock %}
+
+{% block head %}    
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+{% block content %}
+<div class="nav">
+    <a href="{% url 'login_attempt' %}"><button class="register-btn">Login</button></a>
+    <div class="container">
+    <button class="register-btn">Register</button>
+    <ul class="dropdown">
+      <li>
+        <a href="{% url 'register_customer' %}"><button class="btn" id="bgcolor">Customer</button></a>
+      </li>
+      <li>
+        <a href="{% url 'register_labour' %}"><button class="btn">  Labour  </button></a>
+      </li>
+    </ul>
+</div>
+  </div>
+
+{% endblock %}

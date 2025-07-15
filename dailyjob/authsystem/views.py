@@ -10,7 +10,7 @@ from datetime import datetime
 
 # Create your views here.
 def index(request):
-    return render(request,"index.html")
+    return render(request,"authsystem/index.html")
 
 def login_attempt(request):
     if request.method == 'POST':
@@ -23,8 +23,7 @@ def login_attempt(request):
             customer_obj = Customer.objects.filter(username=username,password=password).first()
             if customer_obj:
                 if customer_obj.is_verified: 
-                    messages.error(request,'Redirect to customer home page')
-                    # return redirect('customer')
+                    return redirect('/customer/home/')
                 else :
                     messages.error(request,'Account is not verified check your mail')
             else :
@@ -33,14 +32,13 @@ def login_attempt(request):
             labour_obj = Labour.objects.filter(username=username,password=password).first()
             if labour_obj:
                 if labour_obj.is_verified :
-                    messages.error(request,'Redirect to Labour home page') 
-                    # return redirect('labour')
+                    return redirect('/labour/home/')
                 else:
                     messages.error(request,'Account is not verified check your mail')
             else:
                 messages.error(request,'Invalid Username or Password')
 
-    return render(request,"login.html")
+    return render(request,"authsystem/login.html")
 
 def register_customer(request):
     alert_flag = False
@@ -65,7 +63,7 @@ def register_customer(request):
         send_mail_after_registration(username,auth_token)
 
 
-    return render(request,"register_customer.html", {'alert_flag': alert_flag})
+    return render(request,"authsystem/register_customer.html", {'alert_flag': alert_flag})
 
 
 def register_labour(request):
@@ -104,7 +102,7 @@ def register_labour(request):
             alert_flag = True
             send_mail_after_registration(username, auth_token)
 
-    return render(request, "register_labour.html", {'alert_flag': alert_flag})
+    return render(request, "authsystem/register_labour.html", {'alert_flag': alert_flag})
 
 def send_mail_after_registration(username, token):
     subject = 'Click the link for your account verification'
