@@ -32,7 +32,10 @@ def login_attempt(request):
             labour_obj = Labour.objects.filter(username=username,password=password).first()
             if labour_obj:
                 if labour_obj.is_verified :
-                    return redirect('/labour/home/')
+                    if labour_obj.verification:
+                        return redirect('/labour/home/')
+                    else:
+                        messages.error(request,'You not a autherized user contact admin for verification')
                 else:
                     messages.error(request,'Account is not verified check your mail')
             else:

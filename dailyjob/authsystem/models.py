@@ -12,6 +12,7 @@ class Labour(models.Model):
     image = models.ImageField(upload_to='images/')
     auth_token = models.CharField(max_length=100)
     is_verified = models.BooleanField(default=False)
+    verification=models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.name}"
