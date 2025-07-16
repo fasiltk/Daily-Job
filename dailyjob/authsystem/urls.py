@@ -3,7 +3,6 @@ from .views import *
 from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
-    path("a/",a,name='a'),
     path("register_customer/",register_customer,name='register_customer'),
     path("register_labour/",register_labour,name='register_labour'),
     path("login_attempt/",login_attempt,name='login_attempt'),

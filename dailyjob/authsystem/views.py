@@ -4,9 +4,9 @@ import uuid
 from django.contrib import messages
 from django.conf import settings
 from django.core.mail import send_mail
-from django.core.files.storage import FileSystemStorage
-from django.utils import timezone
-from datetime import datetime
+# from django.core.files.storage import FileSystemStorage
+# from django.utils import timezone
+# from datetime import datetime
 
 # Create your views here.
 def index(request):
@@ -123,18 +123,10 @@ def verify(request, auth_token):
         profile_obj.save()
         # Redirect based on the type of profile (Customer or Labour)
         if isinstance(profile_obj, Customer):
-            return redirect('customer')
+            return redirect('/customer/home/')
         elif isinstance(profile_obj, Labour):
-            return redirect('labour')
+            return redirect('/labour/home/')
     else:
         messages.error(request, 'Invalid verification link')
         return redirect('index')
 
-
-
-
-
-
-
-def a(request):
-    return render(request,"authsystem/a.html")
