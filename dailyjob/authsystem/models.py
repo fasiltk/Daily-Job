@@ -9,7 +9,7 @@ class Labour(models.Model):
     phone_number = models.CharField(max_length=10)
     place = models.CharField(max_length=100)
     fees = models.CharField(max_length=10)
-    image = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to='media/images/')
     auth_token = models.CharField(max_length=100)
     is_verified = models.BooleanField(default=False)
     verification=models.BooleanField(default=False)

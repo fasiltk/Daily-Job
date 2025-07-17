@@ -5,85 +5,68 @@
 {% block title %}Login{% endblock %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/register_customer.css' %}">
+<link rel="stylesheet" href="{% static 'authsystem/css/register_customer.css' %}">
 {% endblock %}
 
 {% block content %}
 
 <a href="{% url 'index' %}"><button class="index-btn">Home</button></a>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-2"></div>
-            <div class="col-lg-6 col-md-8 login-box">
-                <div class="col-lg-12 login-key">
-                    <i class="fa fa-key" aria-hidden="true"></i>
-                </div>
-
-                <div class="col-lg-12 login-title">
-                    LOGIN
-                </div>
-
-                <!-- <div class="col-lg-6 login-btm login-text"> -->
-                    <!-- Error Message -->
-
-                    <!-- {% if messages %}
-                    <div class="alert alert-danger">
-                        <ul class="list-unstyled">
-                            {% for message in messages %}
-                                <li>{{ message }}</li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                {% endif %}
-
-
-                </div> -->
-
-
-                    <div class="col-lg-12 login-form">
-                        <form method="post">
-                            {% csrf_token %}
-                            <div class="form-group">
-                                <label class="form-control-label">USERNAME</label>
-                                <input type="email" class="form-control" name="username">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-control-label">PASSWORD</label>
-                                <input type="password" class="form-control" name="password">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-control-label">ROLE</label>
-                                <select name="role" class="form-control">
-                                    <option value="customer" selected>Customer</option>
-                                    <option value="labour">Labour</option>
-                                </select>
-                            </div>    
-
-                            <div class="col-lg-6 login-btm login-text">
-                                <!-- Error Message -->
-            
-                                {% if messages %}
-                                <div class="alert alert-danger">
-                                    <ul class="list-unstyled">
-                                        {% for message in messages %}
-                                            <li>{{ message }}</li>
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                            {% endif %}
-            
-            
-                            </div>
-            
-
-                            <div class="col-lg-12 loginbttm">
-                                <div class="col-lg-6 login-btm login-button">
-                                    <button type="submit" class="btn btn-outline-primary">LOGIN</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-md-2"></div>
+        <div class="col-lg-6 col-md-8 login-box">
+            <div class="col-lg-12 login-key">
+                <i class="fa fa-key" aria-hidden="true"></i>
             </div>
 
-{% endblock %}
+            <div class="col-lg-12 login-title">
+                LOGIN
+            </div>
+
+            <div class="col-lg-12 login-form">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label class="form-control-label">USERNAME</label>
+                        <input type="email" class="form-control" name="username">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">PASSWORD</label>
+                        <input type="password" class="form-control" name="password">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">ROLE</label>
+                        <select name="role" class="form-control">
+                            <option value="customer" selected>Customer</option>
+                            <option value="labour">Labour</option>
+                        </select>
+                    </div>
+
+                    <div class="col-lg-6 login-btm login-text">
+                        <!-- Error Message -->
+
+                        {% if messages %}
+                        <div class="alert alert-danger">
+                            <ul class="list-unstyled">
+                                {% for message in messages %}
+                                <li>{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+
+
+                    </div>
+
+
+                    <div class="col-lg-12 loginbttm">
+                        <div class="col-lg-6 login-btm login-button">
+                            <button type="submit" class="btn btn-outline-primary">LOGIN</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

@@ -5,7 +5,7 @@
 {% block title %}Customer Registrations{% endblock %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/register_customer.css' %}">
+<link rel="stylesheet" href="{% static 'authsystem/css/register_customer.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -24,11 +24,6 @@
                 <div class="col-lg-12 login-title">
                     REGISTRATION
                 </div>
-
-                <!-- <div class="col-lg-6 login-btm login-text"> -->
-                <!-- Error Message -->
-                <!-- </div> -->
-
 
                 <div class="col-lg-12 login-form">
                     <form>
@@ -91,7 +86,7 @@
         <input type="hidden" id="alert-flag" value="{% if alert_flag %}true{% else %}false{% endif %}">
 </form>
 
-<script src="{% static 'js/register_customer.js' %}"></script>
+<script src="{% static 'authsystem/js/register_customer.js' %}"></script>
 
 
 {% endblock %}

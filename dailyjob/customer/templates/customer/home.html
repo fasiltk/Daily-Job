@@ -1,11 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Customer home pageeee</h1>
-</body>
-</html>
+{% extends 'customer/base.html' %}
+
+{% load static %}
+
+{% block title %}Customer{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'customer/css/home.css' %}">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+{% endblock %}
+{% block content %}
+<!-- <h1>aloo</h1> -->
+
+{% for customer in cust_obj %}
+<h3>Hey,{{ customer.name }}</h3>
+<div class="card-container">
+{% for labour_obj in labour_obj %}
+
+
+
+
+<div class="wrapper">
+    <div class="container">
+        <div class="top">
+            <img src="{{ labour_obj.image.url }}" alt="alo" class="labourimage">
+        </div>
+        <div class="bottom">
+            <div class="left">
+                <div class="details">
+                    <h1>Chair</h1>
+                    <p>£250</p>
+                </div>
+                <div class="buy"><i class="material-icons">add_shopping_cart</i></div>
+            </div>
+            <div class="right">
+                <div class="done"><i class="material-icons">done</i></div>
+                <div class="details">
+                    <h1>Chair</h1>
+                    <p>Added to your cart</p>
+                </div>
+                <div class="remove"><i class="material-icons">clear</i></div>
+            </div>
+        </div>
+    </div>
+    <div class="inside">
+        <div class="icon"><i class="material-icons">info_outline</i></div>
+        <div class="contents">
+            <table>
+                <tr>
+                    <th>Width</th>
+                    <th>Height</th>
+                </tr>
+                <tr>
+                    <td>3000mm</td>
+                    <td>4000mm</td>
+                </tr>
+                <tr>
+                    <th>Something</th>
+                    <th>Something</th>
+                </tr>
+                <tr>
+                    <td>200mm</td>
+                    <td>200mm</td>
+                </tr>
+                <tr>
+                    <th>Something</th>
+                    <th>Something</th>
+                </tr>
+                <tr>
+                    <td>200mm</td>
+                    <td>200mm</td>
+                </tr>
+                <tr>
+                    <th>Something</th>
+                    <th>Something</th>
+                </tr>
+                <tr>
+                    <td>200mm</td>
+                    <td>200mm</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endfor %}
+    {% endfor %}
+</div>
+<script src="{% static 'customer/js/home.js' %}"></script>
+
+{% endblock %}
