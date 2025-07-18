@@ -190,3 +190,14 @@ html, body{
     width: 300px;
     height: 400px;
 }
+.labour_obj_name{
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping to the next row */
+  gap: 20px;        /* Optional: space between cards */
+  justify-content: flex-start; /* Align items to the left */
+}

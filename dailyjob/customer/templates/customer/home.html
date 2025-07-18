@@ -15,7 +15,7 @@
 {% for customer in cust_obj %}
 <h3>Hey,{{ customer.name }}</h3>
 <div class="card-container">
-{% for labour_obj in labour_obj %}
+{% for item in profession_obj %}
 
 
 
@@ -23,13 +23,14 @@
 <div class="wrapper">
     <div class="container">
         <div class="top">
-            <img src="{{ labour_obj.image.url }}" alt="alo" class="labourimage">
+            <img src="{{ item.labour.image.url }}" alt="alo" class="labourimage">
         </div>
         <div class="bottom">
             <div class="left">
                 <div class="details">
-                    <h1>Chair</h1>
-                    <p>£250</p>
+                    <p class="labour_obj_name">{{item.labour.name}}</p>
+                    <p>{{item.profession}}</p>
+                    <p>₹{{ item.labour.fees }}</p>
                 </div>
                 <div class="buy"><i class="material-icons">add_shopping_cart</i></div>
             </div>
@@ -48,37 +49,37 @@
         <div class="contents">
             <table>
                 <tr>
-                    <th>Width</th>
-                    <th>Height</th>
+                    <th>Name</th>
+                    <th>{{item.labour.name}}</th>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td>3000mm</td>
                     <td>4000mm</td>
-                </tr>
+                </tr> -->
                 <tr>
-                    <th>Something</th>
-                    <th>Something</th>
+                    <th>Phone number</th>
+                    <th>{{item.labour.phone_number}}</th>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td>200mm</td>
                     <td>200mm</td>
-                </tr>
+                </tr> -->
                 <tr>
-                    <th>Something</th>
-                    <th>Something</th>
+                    <th>Place</th>
+                    <th>{{item.labour.place}}</th>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td>200mm</td>
                     <td>200mm</td>
-                </tr>
+                </tr> -->
                 <tr>
-                    <th>Something</th>
-                    <th>Something</th>
+                    <th>Fees</th>
+                    <th>{{item.labour.fees}}</th>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td>200mm</td>
                     <td>200mm</td>
-                </tr>
+                </tr> -->
             </table>
         </div>
     </div>

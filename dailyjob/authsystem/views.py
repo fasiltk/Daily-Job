@@ -130,3 +130,6 @@ def verify(request, auth_token):
         messages.error(request, 'Invalid verification link')
         return redirect('index')
 
+def logout_view(request):
+   request.session.flush()
+   return redirect('login_attempt')
