@@ -1,0 +1,43 @@
+{% extends 'customer/base.html' %}
+
+{% load static %}
+
+{% block title %}Customer{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'customer/css/book.css' %}">
+
+{% endblock %}
+{% block content %}
+<div class="container">
+    <h2>Book Labour: {{ labour.name }} - {{ profession.profession }}</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        <label for="location_name">Location Name:</label>
+        <input type="text" name="location_name" id="location_name" required>
+
+        <label for="b_address">Booking Address:</label>
+        <textarea name="b_address" id="b_address" rows="4" required></textarea>
+
+        <label for="date">Booking Date:</label>
+        <input type="date" name="date" id="date" required>
+
+        <button type="submit">Confirm Booking</button>
+    </form>
+
+    <div class="booked-dates">
+        <h3>Already Booked Dates</h3>
+        <ul>
+            {% for date in booked_dates %}
+                <li>{{ date }}</li>
+            {% empty %}
+                <li>No dates booked yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<!-- <script src="{% static 'customer/js/home.js' %}"></script> -->
+
+{% endblock %}
