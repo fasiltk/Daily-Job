@@ -133,3 +133,31 @@ def verify(request, auth_token):
 def logout_view(request):
    request.session.flush()
    return redirect('login_attempt')
+
+def change_password(request):
+    username = request.session.get('username')
+    if not username:
+        return redirect('login_attempt')
+
+    user = None
+    user_type = None
+
+    # Try to identify the user type
+    try:
+        user = Customer.objects.get(username=username)
+        user_type = 'customer'
+    except Customer.DoesNotExist:
+        try:
+            user = Labour.objects.get(username=username)
+            user_type = 'labour'
+        except Labour.DoesNotExist:
+            return redirect('login_attempt')
+
+    if request.method == 'POST':
+        new_password = request.POST.get('password')
+
+        user.password = new_password
+        user.save()
+        return redirect('login_attempt')  # Adjust as needed
+
+    return render(request, "authsystem/change_password.html")

@@ -9,6 +9,7 @@ urlpatterns = [
     path('verify/<auth_token>',verify,name='verify'),
     path("", index, name="index"),
     path("logout_view/",logout_view,name='logout_view'),
+    path("change_password/",change_password,name='change_password'),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
