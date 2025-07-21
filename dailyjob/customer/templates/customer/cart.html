@@ -1,0 +1,42 @@
+{% extends 'customer/base.html' %}
+{% load static %}
+
+{% block title %}Cart{% endblock %}
+
+{% block head %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'customer/css/cart.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="cart-container">
+    <h2>Your Bookings</h2>
+
+    {% if obj %}
+    <div class="cart-cards">
+        {% for item in obj %}
+        <div class="booking-card {% if item.confirm %}confirmed{% else %}pending{% endif %}">
+            <img src="{{item.labour.image.url}}" alt="photo">
+            <h3>{{ item.labour.name }}</h3>
+            <p><strong>Profession:</strong> {{ item.labour.profession_set.first.profession }}</p>
+            <p><strong>Date:</strong> {{ item.date }}</p>
+            <p><strong>Location:</strong> {{ item.location_name }}</p>
+            <p><strong>Address:</strong> {{ item.b_address }}</p>
+            <p><strong>Status:</strong>
+                {% if item.confirm %}
+                Confirmed
+                {% else %}
+                Pending
+                {% endif %}
+            </p>
+            <a href="/customer/delete_booking/{{ item.id }}"><button type="button" class="btn btn-outline-danger">Delete</button></a>
+
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>No bookings yet.</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

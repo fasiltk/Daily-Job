@@ -68,3 +68,13 @@ def book(request, id):
         "customer": customer,
         "booked_dates": booked_dates,  # 🔹 Pass to template
     })
+
+def cart(request):
+    username = request.session.get("username")
+    obj = Book.objects.filter(cust_username=username)
+    return render(request,"customer/cart.html",{"obj":obj})
+
+def delete_booking(request, id):
+    booking = get_object_or_404(Book, id=id)
+    booking.delete()
+    return redirect('cart')
