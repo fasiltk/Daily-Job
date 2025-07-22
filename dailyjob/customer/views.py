@@ -71,7 +71,7 @@ def book(request, id):
 
 def cart(request):
     username = request.session.get("username")
-    obj = Book.objects.filter(cust_username=username)
+    obj = Book.objects.filter(cust_username=username,labour__verification=True)
     return render(request,"customer/cart.html",{"obj":obj})
 
 def delete_booking(request, id):
