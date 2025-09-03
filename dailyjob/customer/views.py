@@ -57,7 +57,9 @@ def book(request, id):
             cust_username=username,
             date=date,
             location_name=location_name,
-            b_address=b_address
+            b_address=b_address,
+            b_profession=profession.profession,
+            b_fees=profession.fees
         )
         messages.success(request, "Booking successful!")
         return redirect("/customer/home/")

@@ -8,7 +8,7 @@ class Labour(models.Model):
     name = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=10)
     place = models.CharField(max_length=100)
-    fees = models.CharField(max_length=10)
+    # fees = models.CharField(max_length=10)
     image = models.ImageField(upload_to='media/images/')
     auth_token = models.CharField(max_length=100)
     is_verified = models.BooleanField(default=False)
@@ -21,6 +21,8 @@ class Labour(models.Model):
 class Profession(models.Model):
     labour=models.ForeignKey(Labour, on_delete=models.CASCADE)
     profession=models.CharField(max_length=100)
+    fees = models.CharField(max_length=10)
+
 
     def __str__(self):
         return f"{self.labour.name} - {self.profession}"

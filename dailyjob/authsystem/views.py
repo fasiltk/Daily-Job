@@ -87,21 +87,26 @@ def register_labour(request):
         if exsist_labour:
             messages.error(request, "Username is already taken")
         else:
-            # Check for 'other' profession and save the labour
-            profession_to_save = other_profession if profession == 'other' else profession
+            # Save Labour without fees
             labour_obj = Labour(
                 username=username,
                 password=password,
                 name=name,
                 phone_number=phone_number,
-                # profession=profession_to_save,
                 place=place,
-                fees=fees,
-                image=image,  # Directly save the image field
+                image=image,
                 auth_token=auth_token
             )
             labour_obj.save()
-            Profession.objects.create(labour=labour_obj, profession=profession_to_save)
+
+            # Save Profession with fees
+            profession_to_save = other_profession if profession == 'other' else profession
+            Profession.objects.create(
+                labour=labour_obj,
+                profession=profession_to_save,
+                fees=fees
+            )
+
             alert_flag = True
             send_mail_after_registration(username, auth_token)
 
