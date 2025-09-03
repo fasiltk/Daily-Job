@@ -24,7 +24,7 @@ def book(request, id):
     username = request.session.get('username')
     if not username:
         return redirect('/authsystem/login_attempt/')
-
+    lab_username = get_object_or_404(Labour,id=id)
     profession = get_object_or_404(Profession, id=id)
     labour = profession.labour
 
@@ -54,7 +54,9 @@ def book(request, id):
 
         Book.objects.create(
             labour=labour,
-            cust_username=username,
+            # cust_username=username,
+            customer=customer,
+            lab_username=lab_username.username,
             date=date,
             location_name=location_name,
             b_address=b_address,

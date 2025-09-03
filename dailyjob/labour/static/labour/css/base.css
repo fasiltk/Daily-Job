@@ -1,0 +1,9 @@
+.logo{
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+}
+body{
+  background: #00394B;
+  font-family: sans-serif;
+}

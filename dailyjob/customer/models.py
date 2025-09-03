@@ -4,7 +4,9 @@ from authsystem.models import *
 
 class Book(models.Model):
     labour=models.ForeignKey(Labour, on_delete=models.CASCADE)
-    cust_username=models.CharField(max_length=100)
+    # cust_username=models.CharField(max_length=100)
+    customer=models.ForeignKey(Customer,on_delete=models.CASCADE,null=True)
+    lab_username=models.CharField(max_length=100,null=True)
     date=models.DateField(unique=True)
     location_name=models.CharField(max_length=100)
     b_address=models.TextField()

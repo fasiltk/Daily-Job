@@ -1,11 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Labour home page</h1>
-</body>
-</html>
+{% extends 'customer/base.html' %}
+
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'labour/css/home.css' %}">
+
+{% endblock %}
+{% block content %}
+<h1>labour home</h1>
+
+
+
+
+
+<h2>Bookings</h2>
+{% for booking in book_data %}
+
+
+
+<div class="card">
+    <p class="heading">
+        Customer: {{ booking.customer.name }}
+    </p>
+    <p>
+        Date: {{ booking.date }}
+    </p>
+    <p>
+        Location: {{ booking.location_name }}
+    </p>
+    <p>
+        Phone: {{ booking.customer.phone_number }}
+    </p>
+
+    {% empty %}
+    <p>No bookings found.</p>
+    {% endfor %}
+
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}
