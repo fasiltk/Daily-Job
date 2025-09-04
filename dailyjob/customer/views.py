@@ -20,13 +20,68 @@ def home(request):
     })
 
 
+# def book(request, id):
+#     username = request.session.get('username')
+#     if not username:
+#         return redirect('/authsystem/login_attempt/')
+#     lab_username = get_object_or_404(Labour,id=id)
+#     profession = get_object_or_404(Profession, id=id)
+#     labour = profession.labour
+
+#     try:
+#         customer = Customer.objects.get(username=username)
+#     except Customer.DoesNotExist:
+#         messages.error(request, "Customer not found.")
+#         return redirect("/authsystem/login_attempt/")
+
+#     # 🔹 Get all booked dates for this labour
+#     booked_dates = Book.objects.filter(labour=labour).values_list('date', flat=True)
+
+#     if request.method == "POST":
+#         location_name = request.POST.get("location_name")
+#         b_address = request.POST.get("b_address")
+#         date_str = request.POST.get("date")
+
+#         try:
+#             date = datetime.strptime(date_str, "%Y-%m-%d").date()
+#         except ValueError:
+#             messages.error(request, "Invalid date format.")
+#             return redirect(request.path)
+
+#         if date in booked_dates:
+#             messages.error(request, "This labour is already booked on that date.")
+#             return redirect(request.path)
+
+#         Book.objects.create(
+#             labour=labour,
+#             # cust_username=username,
+#             customer=customer,
+#             lab_username=lab_username.username,
+#             date=date,
+#             location_name=location_name,
+#             b_address=b_address,
+#             b_profession=profession.profession,
+#             b_fees=profession.fees
+#         )
+#         messages.success(request, "Booking successful!")
+#         return redirect("/customer/home/")
+
+#     return render(request, "customer/book.html", {
+#         "labour": labour,
+#         "profession": profession,
+#         "customer": customer,
+#         "booked_dates": booked_dates,  # 🔹 Pass to template
+#     })
+
+
 def book(request, id):
     username = request.session.get('username')
     if not username:
         return redirect('/authsystem/login_attempt/')
-    lab_username = get_object_or_404(Labour,id=id)
+
+    # Get profession by ID
     profession = get_object_or_404(Profession, id=id)
-    labour = profession.labour
+    labour = profession.labour   # already linked labour
 
     try:
         customer = Customer.objects.get(username=username)
@@ -34,7 +89,6 @@ def book(request, id):
         messages.error(request, "Customer not found.")
         return redirect("/authsystem/login_attempt/")
 
-    # 🔹 Get all booked dates for this labour
     booked_dates = Book.objects.filter(labour=labour).values_list('date', flat=True)
 
     if request.method == "POST":
@@ -54,9 +108,8 @@ def book(request, id):
 
         Book.objects.create(
             labour=labour,
-            # cust_username=username,
             customer=customer,
-            lab_username=lab_username.username,
+            lab_username=labour.username,
             date=date,
             location_name=location_name,
             b_address=b_address,
@@ -70,13 +123,19 @@ def book(request, id):
         "labour": labour,
         "profession": profession,
         "customer": customer,
-        "booked_dates": booked_dates,  # 🔹 Pass to template
+        "booked_dates": booked_dates,
     })
+
 
 def cart(request):
     username = request.session.get("username")
-    obj = Book.objects.filter(cust_username=username,labour__verification=True)
-    return render(request,"customer/cart.html",{"obj":obj})
+    try:
+        customer = Customer.objects.get(username=username)
+    except Customer.DoesNotExist:
+        return redirect("/authsystem/login_attempt/")
+
+    obj = Book.objects.filter(customer=customer, labour__verification=True)
+    return render(request, "customer/cart.html", {"obj": obj})
 
 def delete_booking(request, id):
     booking = get_object_or_404(Book, id=id)

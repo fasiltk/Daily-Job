@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from .models import *
 from customer.models import *
 from authsystem.models import *
@@ -23,3 +23,14 @@ def home(request):
     return render(request, "labour/home.html", {
         "book_data": book_data,
     })
+
+def approve(request,id):
+    approve=get_object_or_404(Book,id=id)
+    approve.confirm=True
+    approve.save()
+    return redirect('home')
+
+def delete(request,id):
+    delete=get_object_or_404(Book,id=id)
+    delete.delete()
+    return redirect('home')

@@ -9,38 +9,43 @@
 
 {% endblock %}
 {% block content %}
-<h1>labour home</h1>
-
-
-
-
 
 <h2>Bookings</h2>
-{% for booking in book_data %}
 
-
-
-<div class="card">
-    <p class="heading">
+<div class="card-container">
+  {% for booking in book_data %}
+    <div class="card">
+      <p class="heading">
         Customer: {{ booking.customer.name }}
-    </p>
-    <p>
+      </p>
+      <p>
         Date: {{ booking.date }}
-    </p>
-    <p>
+      </p>
+      <p>
         Location: {{ booking.location_name }}
-    </p>
-    <p>
+      </p>
+      <p>
+        Job: {{ booking.b_profession }}
+      </p>
+      <p>
+        Address: {{ booking.b_address }}
+      </p>
+      <p>
         Phone: {{ booking.customer.phone_number }}
-    </p>
-
-    {% empty %}
+      </p>
+      <div class="btndiv">
+        <a href="/labour/approve/{{ booking.id }}">
+          <button type="button" class="btn btn-approve">Approve</button>
+        </a>
+        <a href="/labour/delete/{{ booking.id }}">
+          <button type="button" class="btn btn-delete">Delete</button>
+        </a>
+      </div>
+    </div>
+  {% empty %}
     <p>No bookings found.</p>
-    {% endfor %}
-
+  {% endfor %}
 </div>
-
-
 
 
 
