@@ -1,14 +1,3 @@
-// function toggleProfessionInput() {
-//     var professionDropdown = document.getElementById('profession');
-//     var otherProfessionInput = document.getElementById('other-profession');
-
-//     if (professionDropdown.value === 'other') {
-//         otherProfessionInput.style.display = 'block';
-//     } else {
-//         otherProfessionInput.style.display = 'none';
-//     }
-// }
-
 window.addEventListener('DOMContentLoaded', function() {
     if (document.getElementById('alert-flag').value === 'true') {
         alert('Check your mail');

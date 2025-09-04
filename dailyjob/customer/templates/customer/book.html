@@ -30,14 +30,13 @@
         <h3>Already Booked Dates</h3>
         <ul>
             {% for date in booked_dates %}
-                <li>{{ date }}</li>
+            <li>{{ date }}</li>
             {% empty %}
-                <li>No dates booked yet.</li>
+            <li>No dates booked yet.</li>
             {% endfor %}
         </ul>
     </div>
 </div>
 
-<!-- <script src="{% static 'customer/js/home.js' %}"></script> -->
 
 {% endblock %}

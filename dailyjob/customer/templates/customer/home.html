@@ -10,86 +10,74 @@
 
 {% endblock %}
 {% block content %}
-<!-- <h1>aloo</h1> -->
 
 {% for customer in cust_obj %}
 <h3>Hey,{{ customer.name }}</h3>
 <div class="card-container">
-{% for item in profession_obj %}
+    {% for item in profession_obj %}
 
 
 
 
-<div class="wrapper">
-    <div class="container">
-        <div class="top">
-            <img src="{{ item.labour.image.url }}" alt="alo" class="labourimage">
-        </div>
-        <div class="bottom">
-            <div class="left">
-                <div class="details">
-                    <p class="labour_obj_name">{{item.labour.name}}</p>
-                    <p>{{item.profession}}</p>
-                    <p>₹{{ item.fees }}</p>
-                </div>
-                <div class="buy"><i class="material-icons"><a href="/customer/book/{{ item.id }}">add_shopping_cart</a></i></a></div>
+    <div class="wrapper">
+        <div class="container">
+            <div class="top">
+                <img src="{{ item.labour.image.url }}" alt="alo" class="labourimage">
             </div>
-            <div class="right">
-                <div class="done"><i class="material-icons">done</i></div>
-                <div class="details">
-                    <h1>Chair</h1>
-                    <p>Added to your cart</p>
+            <div class="bottom">
+                <div class="left">
+                    <div class="details">
+                        <p class="labour_obj_name">{{item.labour.name}}</p>
+                        <p>{{item.profession}}</p>
+                        <p>₹{{ item.fees }}</p>
+                    </div>
+                    <div class="buy"><i class="material-icons"><a
+                                href="/customer/book/{{ item.id }}">add_shopping_cart</a></i></a></div>
                 </div>
-                <div class="remove"><i class="material-icons">clear</i></div>
+                <div class="right">
+                    <div class="done"><i class="material-icons">done</i></div>
+                    <div class="details">
+                        <h1>Chair</h1>
+                        <p>Added to your cart</p>
+                    </div>
+                    <div class="remove"><i class="material-icons">clear</i></div>
+                </div>
+            </div>
+        </div>
+        <div class="inside">
+            <div class="icon"><i class="material-icons">info_outline</i></div>
+            <div class="contents">
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>{{item.labour.name}}</th>
+                    </tr>
+
+                    <tr>
+                        <th>Phone number</th>
+                        <th>{{item.labour.phone_number}}</th>
+                    </tr>
+
+                    <tr>
+                        <th>Place</th>
+                        <th>{{item.labour.place}}</th>
+                    </tr>
+
+                    <tr>
+                        <th>Fees</th>
+                        <th>{{item.fees}}</th>
+                    </tr>
+
+                </table>
             </div>
         </div>
     </div>
-    <div class="inside">
-        <div class="icon"><i class="material-icons">info_outline</i></div>
-        <div class="contents">
-            <table>
-                <tr>
-                    <th>Name</th>
-                    <th>{{item.labour.name}}</th>
-                </tr>
-                <!-- <tr>
-                    <td>3000mm</td>
-                    <td>4000mm</td>
-                </tr> -->
-                <tr>
-                    <th>Phone number</th>
-                    <th>{{item.labour.phone_number}}</th>
-                </tr>
-                <!-- <tr>
-                    <td>200mm</td>
-                    <td>200mm</td>
-                </tr> -->
-                <tr>
-                    <th>Place</th>
-                    <th>{{item.labour.place}}</th>
-                </tr>
-                <!-- <tr>
-                    <td>200mm</td>
-                    <td>200mm</td>
-                </tr> -->
-                <tr>
-                    <th>Fees</th>
-                    <th>{{item.fees}}</th>
-                </tr>
-                <!-- <tr>
-                    <td>200mm</td>
-                    <td>200mm</td>
-                </tr> -->
-            </table>
-        </div>
-    </div>
-</div>
 
 
 
 
 
-{% endfor %}
+    {% endfor %}
     {% endfor %}
 </div>
 <script src="{% static 'customer/js/home.js' %}"></script>

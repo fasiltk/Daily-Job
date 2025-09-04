@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     color: #fff;
-      background: #00394B;
+    background: #00394B;
 
 }
 
@@ -15,7 +15,6 @@ body {
 .cart-container h2 {
     text-align: center;
     margin-bottom: 30px;
-    /* color: #333; */
 }
 
 .booking-card {
@@ -32,7 +31,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;}
+    text-align: center;
+}
 
 .booking-card:hover {
     transform: scale(1.01);
@@ -40,11 +40,13 @@ body {
 
 /* Full border colors */
 .booking-card.confirmed {
-    border-color: #28a745; /* green */
+    border-color: #28a745;
+    /* green */
 }
 
 .booking-card.pending {
-    border-color: #ff9800; /* orange */
+    border-color: #ff9800;
+    /* orange */
 }
 
 .booking-card h3 {
@@ -58,12 +60,12 @@ body {
     color: #555;
 }
 
-img{
-    width:150px;
+img {
+    width: 150px;
     height: 200px;
     border-radius: 80px;
-    /* margin-left: 70px; */
 }
+
 .cart-cards {
     display: flex;
     flex-wrap: wrap;

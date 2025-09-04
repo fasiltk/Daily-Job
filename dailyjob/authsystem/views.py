@@ -4,9 +4,7 @@ import uuid
 from django.contrib import messages
 from django.conf import settings
 from django.core.mail import send_mail
-# from django.core.files.storage import FileSystemStorage
-# from django.utils import timezone
-# from datetime import datetime
+
 
 # Create your views here.
 def index(request):
@@ -33,6 +31,7 @@ def login_attempt(request):
             if labour_obj:
                 if labour_obj.is_verified :
                     if labour_obj.verification:
+                        request.session['labour_id'] = labour_obj.id
                         return redirect('/labour/home/')
                     else:
                         messages.error(request,'You not a autherized user contact admin for verification')

@@ -1,9 +1,10 @@
-.logo{
-    width: 80px;
-    height: 80px;
-    display: inline-block;
+.logo {
+  width: 80px;
+  height: 80px;
+  display: inline-block;
 }
-body{
+
+body {
   background: #222D32;
   font-family: sans-serif;
 }
