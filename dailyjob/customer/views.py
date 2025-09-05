@@ -12,7 +12,10 @@ def home(request):
     cust_obj = Customer.objects.filter(username=username)
     
     # Get all professions with labour preloaded
-    profession_obj = Profession.objects.select_related('labour').all()
+    profession_obj = Profession.objects.select_related('labour').filter(
+        labour__is_verified=True,
+        labour__verification=True
+    )
     
     return render(request, "customer/home.html", {
         'cust_obj': cust_obj,

@@ -19,8 +19,8 @@
         <div class="booking-card {% if item.confirm %}confirmed{% else %}pending{% endif %}">
             <img src="{{item.labour.image.url}}" alt="photo">
             <h3>{{ item.labour.name }}</h3>
-            <p><strong>Profession:</strong> {{ item.labour.profession_set.first.profession }}</p>
-            <p><strong>Fees:</strong> {{ item.labour.profession_set.first.fees }}</p>
+            <p><strong>Profession:</strong> {{ item.b_profession }}</p>
+            <p><strong>Fees:</strong> {{ item.b_fees }}</p>
             <p><strong>Date:</strong> {{ item.date }}</p>
             <p><strong>Location:</strong> {{ item.location_name }}</p>
             <p><strong>Address:</strong> {{ item.b_address }}</p>
