@@ -6,8 +6,8 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'customer/css/book.css' %}">
-
 {% endblock %}
+
 {% block content %}
 <div class="container">
     <h2>Book Labour: {{ labour.name }} - {{ profession.profession }}</h2>
@@ -36,7 +36,18 @@
             {% endfor %}
         </ul>
     </div>
+
+    
+    <!-- Display messages -->
+    <div>
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li class="message {{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+
 </div>
-
-
 {% endblock %}
