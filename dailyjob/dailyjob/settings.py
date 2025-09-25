@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'authsystem',
     'customer',
     'labour',
+    'location',
 ]
 
 MIDDLEWARE = [

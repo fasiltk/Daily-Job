@@ -24,6 +24,7 @@ urlpatterns = [
     path('authsystem/', include('authsystem.urls')),
     path('customer/', include('customer.urls')),
     path('labour/', include('labour.urls')),
+    path('location/', include('location.urls')),
 ]
 
 if settings.DEBUG:
