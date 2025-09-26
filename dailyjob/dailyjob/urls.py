@@ -25,6 +25,8 @@ urlpatterns = [
     path('customer/', include('customer.urls')),
     path('labour/', include('labour.urls')),
     path('location/', include('location.urls')),
+    path('chat/', include('chat.urls')),
+
 ]
 
 if settings.DEBUG:

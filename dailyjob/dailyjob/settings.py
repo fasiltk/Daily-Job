@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'customer',
     'labour',
     'location',
+    'chat'
 ]
 
 MIDDLEWARE = [
