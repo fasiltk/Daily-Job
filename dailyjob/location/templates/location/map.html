@@ -1,8 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Route Finder (Leaflet)</title>
-    <meta charset="utf-8" />
+{% extends 'customer/base.html' %}
+
+{% load static %}
+
+{% block title %}Map{% endblock %}
+
+{% block head %}
+
+<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Leaflet CSS -->
@@ -11,9 +15,13 @@
         #map { height: 500px; width: 100%; margin-top: 20px; }
         #instructions { margin-top: 20px; font-family: Arial, sans-serif; }
     </style>
-</head>
-<body>
-    <h2>Find a Route</h2>
+
+{% endblock %}
+
+
+{% block content %}
+
+
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
@@ -122,5 +130,6 @@
         plotRoute();
     </script>
     {% endif %}
-</body>
-</html>
+
+
+{% endblock %}
