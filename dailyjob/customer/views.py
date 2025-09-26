@@ -52,10 +52,19 @@ def book(request, id):
             messages.error(request, "Invalid date format.")
             return redirect(request.path)
 
+        today = datetime.today().date()
+
+        # ❌ Block past dates
+        if date < today:
+            messages.error(request, "You cannot book for past dates.")
+            return redirect(request.path)
+
+        # ❌ Block already booked dates
         if date in booked_dates:
             messages.error(request, "This labour is already booked on that date.")
             return redirect(request.path)
 
+        # ✅ Create booking
         Book.objects.create(
             labour=labour,
             customer=customer,

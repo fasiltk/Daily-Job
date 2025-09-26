@@ -9,7 +9,7 @@ body {
 
 .container {
     max-width: 700px;
-    margin: 0 auto;
+    margin: 50px auto;
     background: #032d3a;
     padding: 30px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -124,4 +124,19 @@ ul {
 
 li {
     list-style: none;
+}
+
+
+.buttonss {
+    padding: 10px 20px;
+    background-color: rgb(26, 34, 38);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.icons {
+    margin: -90px 0px 0px 730px;
 }

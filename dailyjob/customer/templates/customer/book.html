@@ -9,6 +9,15 @@
 {% endblock %}
 
 {% block content %}
+<div class="icons">
+    <a href="{% url 'customer:home' %}"><button class="buttonss">Home</button></a>
+    <a href="{% url 'customer:cart' %}"><button class="buttonss">Cart</button></a>
+    <a href="{% url 'chat:chat_room' %}"><button class="buttonss">Chat</button></a>
+    <a href="{% url 'location:map_view' %}"><button class="buttonss">Map</button></a>
+    <a href="{% url 'authsystem:change_password' %}"><button class="buttonss">Change Password</button></a>
+    <a href="{% url 'authsystem:logout_view' %}"><button class="buttonss">Logout</button></a>
+
+</div>
 <div class="container">
     <h2>Book Labour: {{ labour.name }} - {{ profession.profession }}</h2>
 
@@ -37,15 +46,15 @@
         </ul>
     </div>
 
-    
+
     <!-- Display messages -->
     <div>
         {% if messages %}
-            <ul>
-                {% for message in messages %}
-                    <li class="message {{ message.tags }}">{{ message }}</li>
-                {% endfor %}
-            </ul>
+        <ul>
+            {% for message in messages %}
+            <li class="message {{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
         {% endif %}
     </div>
 

@@ -11,6 +11,16 @@
 {% endblock %}
 {% block content %}
 
+<div class="icons">
+    <a href="{% url 'customer:cart' %}"><button class="buttonss">Cart</button></a>
+    <a href="{% url 'chat:chat_room' %}"><button class="buttonss">Chat</button></a>
+    <a href="{% url 'location:map_view' %}"><button class="buttonss">Map</button></a>
+    <a href="{% url 'authsystem:change_password' %}"><button class="buttonss">Change Password</button></a>
+    <a href="{% url 'authsystem:logout_view' %}"><button class="buttonss">Logout</button></a>
+
+</div>
+
+
 {% for customer in cust_obj %}
 <h3>Hey,{{ customer.name }}</h3>
 <div class="card-container">

@@ -4,6 +4,7 @@ from .models import ChatMessage
 
 def chat_room(request):
     username = request.session.get("username")
+    role = request.session.get('role')
     labour = None
     customer = None
 
@@ -55,6 +56,7 @@ def chat_room(request):
         "partners": partners,
         "selected_partner": selected_partner,
         "messages": messages,
+        "role":role
     })
 
 

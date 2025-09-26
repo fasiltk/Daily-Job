@@ -7,6 +7,7 @@ class RouteForm(forms.Form):
     end = forms.CharField(label="End Location", max_length=100)
 
 def map_view(request):
+    role = request.session.get('role')
     start = end = None
     form = RouteForm()
 
@@ -19,5 +20,6 @@ def map_view(request):
     return render(request, 'location/map.html', {
         'form': form,
         'start': start,
-        'end': end
+        'end': end,
+        "role":role
     })

@@ -16,6 +16,7 @@ def login_attempt(request):
         password = request.POST.get('password')
         role = request.POST.get('role')
         request.session['username']=username
+        request.session['role']=role
 
         if role == 'customer':
             customer_obj = Customer.objects.filter(username=username,password=password).first()
@@ -136,10 +137,11 @@ def verify(request, auth_token):
 
 def logout_view(request):
    request.session.flush()
-   return redirect('login_attempt')
+   return redirect('/authsystem/login_attempt/')
 
 def change_password(request):
     username = request.session.get('username')
+    role = request.session.get('role')
     if not username:
         return redirect('login_attempt')
 
@@ -163,5 +165,4 @@ def change_password(request):
         user.password = new_password
         user.save()
         return redirect('login_attempt')  # Adjust as needed
-
-    return render(request, "authsystem/change_password.html")
+    return render(request, "authsystem/change_password.html",{'role':role})

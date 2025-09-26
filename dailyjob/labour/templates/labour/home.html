@@ -9,7 +9,14 @@
 
 {% endblock %}
 {% block content %}
+<div class="icons">
+    <a href="{% url 'labour:addjob' %}"><button class="buttonss">Add Job</button></a>
+    <a href="{% url 'location:map_view' %}"><button class="buttonss">Map</button></a>
+    <a href="{% url 'chat:chat_room' %}"><button class="buttonss">Chat</button></a>
+    <a href="{% url 'authsystem:change_password' %}"><button class="buttonss">Change Password</button></a>
+    <a href="{% url 'authsystem:logout_view' %}"><button class="buttonss">Log Out</button></a>
 
+</div>
 <h2>Bookings</h2>
 
 <div class="card-container">

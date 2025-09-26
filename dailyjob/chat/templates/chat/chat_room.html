@@ -1,5 +1,47 @@
 {% extends 'customer/base.html' %}
+
+{% load static %}
+
+{% block title %}Customer{% endblock %}
+
+{% block head %}
+<style>
+    .buttonss{
+  padding: 10px 20px;
+    background-color: rgb(26, 34, 38);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.icons{
+    margin: -60px 0px 0px 795px;
+}
+</style>
+{% endblock %}
+
 {% block content %}
+<div class="icons">
+    {% if role == "labour" %}
+    <a href="{% url 'labour:home' %}"><button class="buttonss">Home</button></a>
+    <a href="{% url 'labour:addjob' %}"><button class="buttonss">Add Job</button></a>
+    <a href="{% url 'location:map_view' %}"><button class="buttonss">Map</button></a>
+    <a href="{% url 'authsystem:change_password' %}"><button class="buttonss">Change Password</button></a>
+    <a href="{% url 'authsystem:logout_view' %}"><button class="buttonss">Log Out</button></a>
+
+
+    {% else %}
+    <a href="{% url 'customer:home' %}"><button class="buttonss">Home</button></a>
+    <a href="{% url 'customer:cart' %}"><button class="buttonss">Cart</button></a>
+    <a href="{% url 'location:map_view' %}"><button class="buttonss">Map</button></a>
+    <a href="{% url 'authsystem:change_password' %}"><button class="buttonss">Change Password</button></a>
+    <a href="{% url 'authsystem:logout_view' %}"><button class="buttonss">Log Out</button></a>
+
+    {% endif %}
+</div>
+
 <div style="display:flex; height:90vh;">
     <!-- Left side: partner selection -->
     <div style="width:30%; border-right:1px solid #ccc; padding:10px;">

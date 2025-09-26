@@ -9,15 +9,18 @@
 {% endblock %}
 {% block content %}
 <div class="nav">
-    <a href="{% url 'login_attempt' %}"><button class="register-btn">Login</button></a>
+    <a href="{% url 'authsystem:login_attempt' %}"><button class="register-btn">Login</button></a>
+
+    <!-- <a href="{% url 'authsystem:logout_view' %}"><button class="buttonss">Logout</button></a> -->
+
     <div class="container">
     <button class="register-btn">Register</button>
     <ul class="dropdown">
       <li>
-        <a href="{% url 'register_customer' %}"><button class="btn" id="bgcolor">Customer</button></a>
+        <a href="{% url 'authsystem:register_customer' %}"><button class="btn" id="bgcolor">Customer</button></a>
       </li>
       <li>
-        <a href="{% url 'register_labour' %}"><button class="btn">  Labour  </button></a>
+        <a href="{% url 'authsystem:register_labour' %}"><button class="btn">  Labour  </button></a>
       </li>
     </ul>
 </div>

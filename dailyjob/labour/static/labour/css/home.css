@@ -120,3 +120,17 @@ a {
 body {
   background-color: #222D32;
 }
+
+.buttonss{
+  padding: 10px 20px;
+    background-color: rgb(26, 34, 38);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.icons{
+    margin: -60px 0px 0px 805px;
+}
